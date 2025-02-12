@@ -1,0 +1,3 @@
+Wallet Adress: 0xd66bC786bC878DEd3eA350185f8367d5Da99225E
+Secret Key: 14bf71fb032b40810483beb8959572506c0dd8543645c46a9bc2f253655a65a6
+Taproot Address: tb1pyjempmch0vtrk53z9jxdz37e5fmtzhumw5xkxj075qzpfr0v8lssrftkjp
