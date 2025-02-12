@@ -1,0 +1,26 @@
+from PIL import Image
+import pytesseract
+
+# 设置Tesseract的路径（根据你的安装路径修改）
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+
+def recognize_captcha(image_path):
+    # 打开验证码图片
+    image = Image.open(image_path)
+    
+    # 将图片转换为灰度图
+    image = image.convert('L')
+    
+    # 二值化处理
+    threshold = 127
+    image = image.point(lambda p: p > threshold and 255)
+    
+    # 使用Tesseract识别验证码
+    captcha_text = pytesseract.image_to_string(image, config='--psm 8')
+    
+    return captcha_text.strip()
+
+# 识别验证码
+image_path = 'captcha.png'  # 替换为你的验证码图片路径
+captcha_text = recognize_captcha(image_path)
+print(f"识别结果: {captcha_text}")
