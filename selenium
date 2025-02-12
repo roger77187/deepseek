@@ -1,0 +1,35 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.action_chains import ActionChains
+import time
+
+# 设置浏览器驱动路径（根据你的实际情况修改）
+chrome_driver_path = '/path/to/chromedriver'
+
+# 创建浏览器驱动
+service = Service(chrome_driver_path)
+driver = webdriver.Chrome(service=service)
+
+# 打开目标网页
+driver.get('https://www.example.com')
+
+# 等待页面加载
+time.sleep(2)
+
+# 找到要点击的元素（例如一个按钮）
+try:
+    # 通过元素的ID、类名、XPath等方式定位元素
+    button = driver.find_element(By.ID, 'button-id')  # 替换为实际的元素ID
+    # 模拟点击
+    button.click()
+    print("按钮点击成功！")
+except Exception as e:
+    print(f"点击失败: {e}")
+
+# 等待一段时间，观察点击后的效果
+time.sleep(2)
+
+# 关闭浏览器
+driver.quit()
