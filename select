@@ -1,0 +1,31 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
+import time
+
+# 设置WebDriver路径（例如ChromeDriver）
+driver_path = 'path/to/chromedriver'
+
+# 初始化WebDriver
+driver = webdriver.Chrome(executable_path=driver_path)
+
+# 打开目标网页
+driver.get('https://example.com')  # 替换为你要操作的网页URL
+
+# 等待页面加载
+time.sleep(2)
+
+# 找到下拉框元素（假设下拉框的id为'dropdown'）
+dropdown = driver.find_element(By.ID, 'dropdown')  # 根据实际情况修改选择器
+
+# 使用Select类操作下拉框
+select = Select(dropdown)
+
+# 选择下拉框中的选项（假设选择值为'option_value'的选项）
+select.select_by_value('option_value')  # 也可以使用 select_by_visible_text 或 select_by_index
+
+# 等待一段时间，模拟用户操作
+time.sleep(2)
+
+# 关闭浏览器
+driver.quit()
