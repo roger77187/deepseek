@@ -1,0 +1,31 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+import random
+
+# 设置WebDriver路径（例如ChromeDriver）
+driver_path = 'path/to/chromedriver'
+
+# 初始化WebDriver
+driver = webdriver.Chrome(executable_path=driver_path)
+
+# 打开目标网页
+driver.get('https://example.com')  # 替换为你要浏览的网页URL
+
+# 等待页面加载
+time.sleep(2)
+
+# 找到输入框元素（假设输入框的id为'input-box'）
+input_box = driver.find_element(By.ID, 'input-box')  # 根据实际情况修改选择器
+
+# 生成10到100之间的随机数
+random_number = random.randint(10, 100)
+
+# 在输入框中输入随机数
+input_box.send_keys(str(random_number))
+
+# 等待一段时间，模拟用户浏览
+time.sleep(2)
+
+# 关闭浏览器
+driver.quit()
